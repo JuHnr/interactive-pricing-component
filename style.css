@@ -42,11 +42,13 @@ p {
 
 .intro {
     height: 140px;
-    margin: 60px 0;
+    margin: 40px 0;
     background-image: url(images/pattern-circles.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    text-align: center;
+    line-height: 1.5em;
 }
 
 h1 {
@@ -55,10 +57,14 @@ h1 {
     margin: 0;
 }
 
+br {
+    display: none;
+}
+
 .main {
-    box-shadow: 0px 5px 15px var(--Empty-Slider-Bar);
-    flex-direction: column;
+    box-shadow: 0px 10px 15px var(--Empty-Slider-Bar);
     width: 40%;
+    min-width: 485px;
     height: auto;
     margin: 0 auto;
     background-color: var(--Pricing-Component-Background);
@@ -68,21 +74,22 @@ h1 {
 .pricing-component {
     width: 100%;
     height: auto;
-    padding: 25px 50px;
-    border-bottom: 1px solid var(--Main-Background);
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--Empty-Slider-Bar);
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 100px);
+    grid-template-rows: repeat(2, 70px);
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .box-price {
     display: flex;
     align-items: center;
-    justify-content:end;
+    justify-content: end;
 }
 
 .box-price span {
@@ -98,8 +105,6 @@ h1 {
 
 }
 
-
-
 .box-pageviews p {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -107,12 +112,12 @@ h1 {
 
 
 
-/* The switch - the box around the slider */
+/*switch On/OFF */
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 50px;
+    height: 26px;
 }
 
 /* Hide default HTML checkbox */
@@ -122,7 +127,7 @@ h1 {
     height: 0;
 }
 
-/* The slider */
+/*slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -138,8 +143,8 @@ h1 {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 18px;
+    width: 18px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -151,15 +156,12 @@ input[type=checkbox]:checked+.slider {
     background-color: var(--Slider-active);
 }
 
-
-
 input[type=checkbox]:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
@@ -168,28 +170,28 @@ input[type=checkbox]:checked+.slider:before {
     border-radius: 50%;
 }
 
-/*slider aspect*/
+/*slider custom*/
 
 input[type=range] {
     width: 100%;
     margin: 10px 0;
     -webkit-appearance: none;
-  }
+}
 
-  input[type=range]:focus {
+input[type=range]:focus {
     outline: none;
-  }
+}
 
-  input[type=range]::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
     border-radius: 5px;
     background: var(--Empty-Slider-Bar);
     border: 0;
     width: 100%;
     height: 10px;
     cursor: pointer;
-  }
+}
 
-  input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     margin-top: -12.5px;
     width: 40px;
     height: 40px;
@@ -198,23 +200,25 @@ input[type=range] {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50px;
-    box-shadow: 0px 12px 10px #a5f3eb;
+    box-shadow: 0px 12px 10px var(--Full-Slider-Bar);
     cursor: pointer;
     -webkit-appearance: none;
-  }
+}
 
-  input[type=range]:focus::-webkit-slider-runnable-track {
+input[type=range]:focus::-webkit-slider-runnable-track {
     background: #eaeefb;
-  }
+}
 
-  input[type=range]::-moz-range-track {
-    background: var(--Full-Slider-Bar);
+input[type=range]::-moz-range-track {
+    border-radius: 5px;
+    background: var(--Empty-Slider-Bar);
     border: 0;
     width: 100%;
     height: 10px;
     cursor: pointer;
-  }
-  input[type=range]::-moz-range-thumb {
+}
+
+input[type=range]::-moz-range-thumb {
     width: 40px;
     height: 40px;
     background: var(--Slider-active);
@@ -222,27 +226,32 @@ input[type=range] {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50px;
-    box-shadow: 0px 12px 10px #a5f3eb;
+    box-shadow: 0px 12px 10px var(--Full-Slider-Bar);
     cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-    background: transparent;
+}
+
+input[type=range]::-ms-track {
+    border-radius: 5px;
+    background: var(--Empty-Slider-Bar);
     border-color: transparent;
     border-width: 21px 0;
     color: transparent;
     width: 100%;
     height: 10px;
     cursor: pointer;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: #eaeefb;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: var(--Full-Slider-Bar);
     border: 0;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: #eaeefb;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: var(--Empty-Slider-Bar);
     border: 0;
-  }
-  input[type=range]::-ms-thumb {
+}
+
+input[type=range]::-ms-thumb {
     width: 40px;
     height: 40px;
     background: var(--Slider-active);
@@ -252,44 +261,37 @@ input[type=range] {
     border-radius: 50px;
     cursor: pointer;
     margin-top: 0px;
-    /*Needed to keep the Edge thumb centred*/
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #eaeefb;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #eaeefb;
-  }
-  
- 
-/*end*/
+}
+
+/*end custom*/
 
 
 
 .billing-type p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
-.left, .right {
-    flex: 1; 
+.left,
+.right {
+    flex: 1;
 }
 
 .left {
     text-align: right;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .right {
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .discount {
     background-color: var(--Discount-Background);
     color: var(--Discount-Text);
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     border-radius: 25px;
     padding: 6px;
-    margin-left: 12px;
+    margin-left: 8px;
 }
 
 
@@ -300,6 +302,10 @@ input[type=range] {
     min-width: 340px;
 }
 
+.advantages p {
+    font-size: 0.8rem;
+}
+
 .advantages p::before {
     content: url(images/icon-check.svg);
     padding-right: 10px;
@@ -308,9 +314,9 @@ input[type=range] {
 button {
     background-color: var(--Text-CTA-Background);
     color: var(--Toggle-Background);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 18px 30px;
+    padding: 14px 46px;
     border-radius: 25px;
     border: none;
     height: auto;
@@ -324,15 +330,31 @@ button:hover {
 .attribution {
     font-size: 11px;
     text-align: center;
+    padding-top: 10px;
 }
 
+.attribution a {
+    text-decoration: none;
+    color: var(--Slider-active);
+}
 
 @media screen and (max-width: 768px) {
 
+    body {
+        background-size: inherit;
+    }
+
+    .main {
+        min-width: 90%;
+    }
+
+    .intro {
+        height: 180px;
+    }
+
+
     .pricing-component {
-        width: 80%;
-        height: 90%;
-        padding: 30px 20px;
+        padding: 30px;
     }
 
     .container {
@@ -342,14 +364,19 @@ button:hover {
 
     .box-pageviews {
         order: 1;
+        width: 100%;
+        text-align: center;
     }
 
     .box-price {
         order: 3;
+        text-align: center;
     }
 
     .box-range {
         order: 2;
+        width: 100%;
+        margin: 30px 0;
     }
 
     .hidden {
@@ -359,11 +386,24 @@ button:hover {
     .advantages {
         display: inherit;
         text-align: center;
+        min-width: 0;
     }
 
     button {
         margin-top: 20px;
-        width: 60%;
+
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    br {
+        display: initial;
     }
 
 }
